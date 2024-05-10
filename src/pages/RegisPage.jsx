@@ -1,7 +1,5 @@
 import React from 'react'
 
-export const HomePage = () => {
-    return (
-        <div>RegisPage</div>
-    )
-}
+export default () => {
+    return <div>RegisPage</div>;
+};

@@ -1,7 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
-import { RegisPage } from "./pages/RegisPage"
+import RegisPage from "./pages/RegisPage"
 
 const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/",
+    path: "/register",
     element: <RegisPage />,
   },
 ])
