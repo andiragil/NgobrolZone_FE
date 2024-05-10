@@ -1,5 +1,7 @@
 import React from "react";
 
-export const HomePage = () => {
-    return <div>HomePage Chat App</div>;
-};
+function HomePage() {
+    return <div>HomePage</div>;
+}
+
+export default HomePage;
