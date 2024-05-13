@@ -44,7 +44,7 @@ function RegisPage() {
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Check me out" />
                             </Form.Group>
-                            <Button className="w-100" variant="primary" type="submit">
+                            <Button className="w-100 rounded-pill" variant="primary" type="submit">
                                 Submit
                             </Button>
                         </Form>
