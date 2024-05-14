@@ -4,25 +4,46 @@ import HomePage from "./pages/HomePage";
 import RegisPage from "./pages/RegisPage";
 import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
+import Navbar from "./components/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <>
+        <Navbar />
+        <HomePage />
+      </>
+    ),
   },
   {
     path: "/register",
-    element: <RegisPage />,
+    element: (
+      <>
+        <Navbar />
+        <RegisPage />
+      </>
+    ),
   },
   {
     path: "/profile",
-    element: <ProfilePage />,
+    element: (
+      <>
+        <Navbar />
+        <ProfilePage />
+      </>
+    ),
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <>
+        <Navbar />
+        <LoginPage />
+      </>
+    ),
   },
 ]);
 
