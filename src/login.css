@@ -1,0 +1,11 @@
+.custom-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: linear-gradient(#008dda, #41c9e2);
+  border: none;
+}
