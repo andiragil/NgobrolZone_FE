@@ -1,5 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 import HomePage from "./pages/HomePage";
 import RegisPage from "./pages/RegisPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <RouterProvider router={router} />;
+    </GoogleOAuthProvider>
+  );
 }
 export default App;
