@@ -1,6 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Provider } from "react-redux";
 
 import HomePage from "./pages/HomePage";
 import RegisPage from "./pages/RegisPage";
@@ -9,6 +10,8 @@ import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import store from "./redux/store";
 
 const router = createBrowserRouter([
   {
@@ -51,9 +54,12 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <RouterProvider router={router} />;
-    </GoogleOAuthProvider>
+    <Provider store={store}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <RouterProvider router={router} />;
+      </GoogleOAuthProvider>
+    </Provider>
+
   );
 }
 export default App;
