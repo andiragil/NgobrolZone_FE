@@ -9,6 +9,7 @@ import {
   Image,
   CardHeader,
 } from "react-bootstrap";
+import GoogleLogin from "../component/GoogleLogin";
 
 function LoginPage() {
   return (
@@ -46,6 +47,7 @@ function LoginPage() {
               >
                 Sign In
               </Button>
+              <GoogleLogin text={"Login With Google"} />
 
               <footer className="mt-2">
                 Need An Account? Sign Here <a href="/register">Here</a>
