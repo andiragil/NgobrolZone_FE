@@ -26,12 +26,13 @@ function HomePage() {
 
     useEffect(() => {
         // Connect to backend
-        socket.on("connect", () => {});
+        socket.on("connect", () => {
+            console.log("Connected to server with id:", socket.id);
+        });
 
         // It will listen the event name "message"
-        socket.on("messages", (message) => {
-            console.log("aku dijalankan!", message);
-            dispatch(getAllMessages());
+        socket.on("message", (message) => {
+            dispatch(getMessages());
         });
 
         socket.on("ontyping", () => {
@@ -40,15 +41,10 @@ function HomePage() {
                 setTyping(false);
             }, 1000);
         });
-
-        socket.on("getAllMessages", () => {
-            console.log("what happen?");
-        });
     }, [dispatch]);
 
     return (
-        <Container className="my-4">
-            <h6>{typing && "seseorang sedang mengetik...."}</h6>
+        <Container className="mt-4">
             <Card
                 style={{
                     height: "85vh",
@@ -85,6 +81,11 @@ function HomePage() {
                         );
                     })}
                 </Card>
+                <div className="mx-4 mt-2 mb-1">
+                    <h6>
+                        {typing ? "Someone is typing..." : "No one is typing"}
+                    </h6>
+                </div>
                 <AddMessage socket={socket} />
             </Card>
         </Container>

@@ -13,7 +13,7 @@ function AddMessage({ socket }) {
     const [addMessage, setAddMessage] = useState("");
 
     const { user } = useSelector((state) => state.auth);
-    
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -28,8 +28,8 @@ function AddMessage({ socket }) {
     };
     return (
         <Form onSubmit={onSubmit} className="mt-auto">
-            <Row>
-                <Col className="my-4 ms-4">
+            <Row className="align-items-center">
+                <Col className="mb-4 ms-4">
                     <Form.Group controlId="message">
                         <Form.Control
                             type="text"
@@ -39,11 +39,19 @@ function AddMessage({ socket }) {
                                 setAddMessage(e.target.value);
                                 socket.emit("typing");
                             }}
+                            className="w-100"
                         />
                     </Form.Group>
                 </Col>
-                <Col md={1} className="my-4 me-4">
-                    <Button type="submit" className="w-100" variant="dark">
+                <Col xs={3} sm={2} className="mb-4 me-4">
+                    <Button
+                        type="submit"
+                        className="w-100"
+                        style={{
+                            background: "linear-gradient(#008DDA, #41C9E2)",
+                            border: "none",
+                        }}
+                    >
                         Send
                     </Button>
                 </Col>
