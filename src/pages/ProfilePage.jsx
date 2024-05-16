@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Container, Row, Col, Card, Form, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "../redux/actions/profile";
@@ -17,10 +18,10 @@ const ProfilePage = () => {
         <Container className="mt-5">
             <Row>
                 <Col md={6} className="offset-md-3 pb-5">
-                    <Card style={{ backgroundColor: "#FFEC9E" }}>
+                    <Card style={{ backgroundColor: "#E1F7F5" }}>
                         <Card.Header
-                            className="text-center fw-bold h4"
-                            style={{ backgroundColor: "#ED9455", color: "#FFFBDA" }}
+                            className="text-white text-center fw-bold h4"
+                            style={{ background: "linear-gradient( #008DDA, #41C9E2)" }}
                         >
                             My Profile
                         </Card.Header>
@@ -48,7 +49,7 @@ const ProfilePage = () => {
                                                     type="text"
                                                     value={user?.name}
                                                     disabled
-                                                    style={{ backgroundColor: "#FFFBDA" }}
+                                                    style={{ backgroundColor: "#ffffff" }}
                                                 />
                                             </Form.Group>
                                             <Form.Group className="mb-3" controlId="email">
@@ -57,7 +58,7 @@ const ProfilePage = () => {
                                                     type="email"
                                                     value={user?.email}
                                                     disabled
-                                                    style={{ backgroundColor: "#FFFBDA" }}
+                                                    style={{ backgroundColor: "#ffffff" }}
                                                 />
                                             </Form.Group>
                                         </div>
