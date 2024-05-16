@@ -1,7 +1,11 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
+import Protected from "./components/Protected";
 import HomePage from "./pages/HomePage";
 import RegisPage from "./pages/RegisPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -10,13 +14,18 @@ import Navbar from "./components/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import store from "./redux/store";
+import NonProtected from "./components/NonProtected";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <Navbar />
-        <HomePage />
+        <Protected>
+          <Navbar />
+          <HomePage />
+        </Protected>
       </>
     ),
   },
@@ -24,8 +33,10 @@ const router = createBrowserRouter([
     path: "/register",
     element: (
       <>
-        <Navbar />
-        <RegisPage />
+        <NonProtected>
+          <Navbar />
+          <RegisPage />
+        </NonProtected>
       </>
     ),
   },
@@ -33,8 +44,10 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <>
-        <Navbar />
-        <ProfilePage />
+        <Protected>
+          <Navbar />
+          <ProfilePage />
+        </Protected>
       </>
     ),
   },
@@ -42,8 +55,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <>
-        <Navbar />
-        <LoginPage />
+        <NonProtected>
+          <Navbar />
+          <LoginPage />
+        </NonProtected>
       </>
     ),
   },
@@ -51,9 +66,14 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <RouterProvider router={router} />;
-    </GoogleOAuthProvider>
+    <Provider store={store}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <RouterProvider router={router} />;
+
+        <ToastContainer theme="colored" />
+      </GoogleOAuthProvider>
+    </Provider>
+
   );
 }
 export default App;
