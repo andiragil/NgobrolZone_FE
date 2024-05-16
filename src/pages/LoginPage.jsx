@@ -9,7 +9,7 @@ import {
   Image,
   CardHeader,
 } from "react-bootstrap";
-import GoogleLogin from "../component/GoogleLogin";
+import GoogleLogin from "../components/GoogleLogin";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/login";
@@ -43,7 +43,7 @@ function LoginPage() {
             >
               <h2 className="text-white text-center fw-bolder my-3">Sign In</h2>
             </CardHeader>
-            <Form>
+            <Form onSubmit={onSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className="fw-semibold">Email address *</Form.Label>
                 <Form.Control

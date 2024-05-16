@@ -9,7 +9,7 @@ import {
   Image,
   CardHeader,
 } from "react-bootstrap";
-import GoogleLogin from "../component/GoogleLogin";
+import GoogleLogin from "../components/GoogleLogin";
 
 function RegisPage() {
   return (

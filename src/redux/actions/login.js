@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { setToken, setUser } from "../reducers/auth";
 
 export const login =
   (navigate, email, password, setIsLoading) => async (dispatch) => {
