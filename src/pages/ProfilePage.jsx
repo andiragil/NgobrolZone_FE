@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Container, Row, Col, Card, Form, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "../redux/actions/profile";
