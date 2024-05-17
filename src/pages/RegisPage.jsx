@@ -1,14 +1,14 @@
 import { useState } from "react";
 import React from "react";
 import {
-    Col,
-    Row,
-    Card,
-    Container,
-    Form,
-    Button,
-    Image,
-    CardHeader,
+  Col,
+  Row,
+  Card,
+  Container,
+  Form,
+  Button,
+  Image,
+  CardHeader,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -16,7 +16,6 @@ import { register } from "../redux/actions/register";
 import GoogleLogin from "../components/GoogleLogin";
 
 function RegisPage() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,9 +35,7 @@ function RegisPage() {
     }
 
     // dispatch the register action
-    dispatch(
-      register(navigate, email, password, name, image, setIsLoading)
-    );
+    dispatch(register(navigate, email, password, name, image, setIsLoading));
   };
   return (
     <Row className="mt-4 mx-2">
@@ -81,7 +78,9 @@ function RegisPage() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="confirmPassword">
-                <Form.Label className="fw-semibold">Confirm Password *</Form.Label>
+                <Form.Label className="fw-semibold">
+                  Confirm Password *
+                </Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Confirm Password"

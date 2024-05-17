@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import {
-    Col,
-    Row,
-    Card,
-    Container,
-    Form,
-    Button,
-    Image,
-    CardHeader,
+  Col,
+  Row,
+  Card,
+  Container,
+  Form,
+  Button,
+  Image,
+  CardHeader,
 } from "react-bootstrap";
 import GoogleLogin from "../components/GoogleLogin";
 import { useNavigate } from "react-router-dom";
@@ -77,16 +77,15 @@ function LoginPage() {
               </Button>
               <GoogleLogin text={"Login With Google"} />
 
-                            <footer className="mt-2">
-                                Need An Account? Sign Here{" "}
-                                <a href="/register">Here</a>
-                            </footer>
-                        </Form>
-                    </Card.Body>
-                </Card>
-            </Col>
-        </Row>
-    );
+              <footer className="mt-2">
+                Need An Account? Sign Here <a href="/register">Here</a>
+              </footer>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+  );
 }
 
 export default LoginPage;
