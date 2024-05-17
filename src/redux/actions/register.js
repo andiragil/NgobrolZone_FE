@@ -19,9 +19,7 @@ export const register =
             let config = {
                 method: "post",
                 url: `${import.meta.env.VITE_BACKEND_API}/api/register`,
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                
                 data: data,
             };
 
