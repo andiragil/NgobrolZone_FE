@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/actions/register";
 import GoogleLogin from "../components/GoogleLogin";
+import { toast } from "react-toastify";
 
 function RegisPage() {
   const navigate = useNavigate();
