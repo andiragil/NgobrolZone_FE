@@ -24,3 +24,37 @@ export const getMessages = () => async (dispatch, getState) => {
         toast.error(error?.response?.data?.message);
     }
 };
+
+export const createNewMessages =
+    (message, user_id) => async (dispatch, getState) => {
+        const state = getState();
+        const { token } = state.auth;
+
+        let data = JSON.stringify({
+            message,
+            user_id,
+        });
+
+        let config = {
+            method: "post",
+            maxBodyLength: Infinity,
+            url: `${import.meta.env.VITE_BACKEND_API}/api/messages`,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            data: data,
+        };
+
+        try {
+            const response = await axios.request(config);
+            const { messages } = getState().message;
+            if (messages.some((item) => item.id === data.data.id)) {
+                return;
+            }
+            toast.success("New message!");
+            dispatch(getAllMessages());
+        } catch (error) {
+            toast.error(error?.response?.data?.message);
+        }
+    };
