@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { logout } from './profile';
+import { setToken, setUser } from "../reducers/auth";
 
 export const register =
     (navigate, email, password, name, image, setIsLoading) =>
@@ -18,16 +19,23 @@ export const register =
             let config = {
                 method: "post",
                 url: `${import.meta.env.VITE_BACKEND_API}/api/register`,
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 data: data,
             };
+
 
             try {
                 const response = await axios.request(config);
 
                 // get dan save token ke local storage
                 const { data } = response.data;
-                const { token } = data;
+                const { token, user } = data;
                 localStorage.setItem("token", token);
+
+                dispatch(setToken(token));
+                dispatch(setUser(user));
 
                 // redirect ke home
                 navigate("/");
